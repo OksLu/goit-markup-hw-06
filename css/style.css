@@ -447,7 +447,7 @@ img {
 .footer-container {
   display: flex;
   align-items: baseline;
-  gap: 70px;
+  justify-content: space-between;
 }
 .page-footer .logo {
   display: inline-block;
@@ -516,7 +516,7 @@ a {
 .footer-social-link:focus {
   background-color: var(--accent-color);
 }
-.subscribe-form {
+.footer-form {
   display: flex;
   align-items: flex-end;
   gap: 10px;
@@ -538,6 +538,7 @@ a {
   padding-bottom: 15px;
   padding-left: 16px;
   background-color: var(--background-color);
+  color: var(--white-color);
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
@@ -738,6 +739,7 @@ a {
   transition: transform var(--duration) var(--timing-function);
   min-width: 528px;
   min-height: 581px;
+  padding: 40px;
 
   background-color: var(--white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -760,6 +762,8 @@ a {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   background-color: transparent;
+
+  cursor: pointer;
 }
 .close-icon {
   transition: fill var(--duration) var(--timing-function);
@@ -772,16 +776,9 @@ a {
 .close-btn:focus .close-icon {
   fill: var(--accent-color);
 }
-.modal-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 
-  margin-left: 40px;
-  margin-right: 40px;
-}
 .form-title {
-  margin: 40px 40px 12px 40px;
+  margin-bottom: 12px;
 
   font-size: 20px;
   line-height: 1.15;
@@ -791,21 +788,24 @@ a {
 }
 .form-thumb {
   position: relative;
+
+  margin-bottom: 10px;
 }
 
 .form-label {
   display: block;
-  font-weight: 400;
+  margin-bottom: 4px;
+
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.01em;
   color: var(--primary-text-color);
 }
 .form-input {
-  width: 448px;
-  padding-top: 10px;
+  width: 100%;
+  height: 40px;
+
   padding-left: 35px;
-  padding-bottom: 10px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   cursor: pointer;
@@ -816,7 +816,13 @@ a {
   border-color: var(--accent-color);
   outline: transparent;
 }
+.form-comment {
+  margin-bottom: 20px;
+}
 .comment {
+  display: block;
+  width: 100%;
+  height: 120px;
   padding: 12px 16px;
 }
 .form-input::placeholder {
@@ -830,7 +836,7 @@ a {
 
 .form-icon {
   position: absolute;
-  top: 25px;
+  top: 30px;
   left: 12px;
   fill: currentColor;
 
@@ -840,20 +846,36 @@ a {
   fill: var(--accent-color);
 }
 
-.check-box {
-  position: absolute;
-  top: 5px;
-  left: 0;
+.form-checkbox {
+  margin-bottom: 30px;
+}
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.check-icon {
+  position: relative;
+  display: block;
   width: 16px;
   height: 15px;
-  background-image: url("data:image/svg+xml,%3Csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.2222 1.66667V13.3333H1.77778V1.66667H14.2222ZM14.2222 0H1.77778C0.8 0 0 0.75 0 1.66667V13.3333C0 14.25 0.8 15 1.77778 15H14.2222C15.2 15 16 14.25 16 13.3333V1.66667C16 0.75 15.2 0 14.2222 0Z' fill='%23212121'/%3E%3C/svg%3E%0A");
+  border: 2px solid #111319;
+  border-radius: 2px;
+  fill: transparent;
 }
-.checkbox:checked + .check-box {
-  background-image: url("data:image/svg+xml,%3Csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='16' height='15' rx='2' fill='%232196F3'/%3E%3Cpath d='M3.95703 7.75166L3.88825 7.68604L3.81923 7.75141L2.93123 8.59258L2.85486 8.66492L2.93097 8.73753L6.42671 12.0724L6.49574 12.1382L6.56476 12.0724L14.069 4.91352L14.1449 4.84116L14.069 4.76881L13.1873 3.92764L13.1183 3.86183L13.0493 3.92761L6.49577 10.1735L3.95703 7.75166Z' fill='white' stroke='white' stroke-width='0.2'/%3E%3C/svg%3E%0A");
+.check-icon svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
-.checkbox-label {
-  margin-left: 30px;
+.checkbox:checked + .check-icon {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  background-origin: border-box;
+  fill: var(--white-color);
+}
+.checkbox-text {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.7;
@@ -862,14 +884,14 @@ a {
   color: var(--primary-text-color);
 }
 .checkbox-link {
-  margin-left: 3px;
   text-decoration-line: underline;
   color: var(--accent-color);
 }
 .form-btn {
   width: 200px;
   padding: 10px 52px;
-  margin: 30px 164px 40px 164px;
+  margin-left: 124px;
+  margin-right: auto;
 
   background-color: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
