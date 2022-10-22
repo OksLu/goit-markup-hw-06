@@ -426,9 +426,9 @@
             </li>
           </ul>
         </div>
-        <div class="footer-form">
+        <div>
           <div>
-            <form>
+            <form class="footer-form">
               <label>
                 <span class="subscribe-title"> Підпишіться на розсилку </span>
                 <input
@@ -438,14 +438,14 @@
                   class="subscribe-input"
                 />
               </label>
+              <button type="submit" class="subscribe-btn">
+                Підписатися
+                <svg width="24" height="24" class="icon">
+                  <use href="./images/icons.svg#icon-send"></use>
+                </svg>
+              </button>
             </form>
           </div>
-          <button type="submit" class="subscribe-btn">
-            Підписатися
-            <svg width="24" height="24" class="icon">
-              <use href="./images/icons.svg#icon-send"></use>
-            </svg>
-          </button>
         </div>
       </div>
     </footer>
@@ -532,8 +532,8 @@
               </span>
             </label>
           </div>
+          <button type="submit" class="form-btn">Відправити</button>
         </form>
-        <button type="submit" class="form-btn">Відправити</button>
       </div>
     </div>
     <script src="./js/modal.js"></script>
